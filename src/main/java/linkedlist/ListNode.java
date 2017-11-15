@@ -5,6 +5,12 @@ public class ListNode {
     ListNode next;
 
     ListNode(int x) {
-        this.val = x;
+        this.val  = x;
+        this.next = null;
+    }
+
+    @Override
+    public String toString() {
+        return this.val+"==>";
     }
 }

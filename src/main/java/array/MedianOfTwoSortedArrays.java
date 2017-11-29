@@ -6,7 +6,7 @@ public class MedianOfTwoSortedArrays {
         return num1 < num2 ? num1 : num2;
     }
 
-    public static double findKthNum(int[] nums1, int[] nums2, int k) {
+    public static double findKthNum(int[] nums1, int[] nums2, int k, int pos1, int pos2) {
         if (nums1.length == 0) {
             return nums2[k - 1];
         } else if (nums2.length == 0) {
@@ -14,6 +14,12 @@ public class MedianOfTwoSortedArrays {
         }
         if (k == 1) {
             return min(nums1[0], nums2[0]);
+        }
+        int mid1 = nums1.length / 2 - 1 > 0 ? nums1.length - 1 : 0;
+        int mid2 = nums2.length / 2 - 1 > 0 ? nums2.length - 1 : 0;
+
+        if (nums1[mid1] >= nums2[mid2]) {
+
         }
         return 0.0;
     }
@@ -23,10 +29,10 @@ public class MedianOfTwoSortedArrays {
             return 0.0;
         }
         if ((nums1.length + nums2.length) % 2 == 1) {
-            return findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2 + 1);
+            return findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2 + 1, 0, 0);
         }
-        return (findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2) +
-                findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2 + 1)) / 2;
+        return (findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2, 0, 0) +
+                findKthNum(nums1, nums2, (nums1.length + nums2.length) / 2 + 1, 0, 0)) / 2;
     }
 
     public static void main(String args[]) {

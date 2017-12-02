@@ -1,4 +1,4 @@
-package strings;
+package strings_test;
 
 public class ZigZagConversion {
 

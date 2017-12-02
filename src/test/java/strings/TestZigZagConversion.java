@@ -1,9 +1,9 @@
-package strings_test;
+package strings;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static strings_test.ZigZagConversion.convert;
+import static strings.ZigZagConversion.convert;
 
 public class TestZigZagConversion {
 

@@ -1,9 +1,9 @@
-package strings_test;
+package strings;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static strings_test.LongestPalindromicSubstring.longestPalindrome;
+import static strings.LongestPalindromicSubstring.longestPalindrome;
 
 public class TestLongestPalindromicSubstring {
     @Test

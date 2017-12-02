@@ -1,4 +1,4 @@
-package strings_test;
+package strings;
 
 public class LongestPalindromicSubstring {
     // Transform S into T.

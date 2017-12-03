@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static strings.RegularExpressionMatching.isMatch;
+import static strings.RegularExpressionMatching.simplyExpression;
 
 public class TestRegularExpressionMatching {
 
@@ -17,6 +18,9 @@ public class TestRegularExpressionMatching {
         assertEquals(true, isMatch("ab", ".*"));
         assertEquals(true, isMatch("aab", "c*a*b"));
         assertEquals(true, isMatch("a", "."));
+        assertEquals(true, isMatch("aaa", "a*a"));
+        assertEquals(true, isMatch("", "c*c*"));
+        assertEquals(false, isMatch("cacbcacbacbccac", ".*c*c*bb*c*..*a*a"));
     }
 
     @Test
@@ -27,5 +31,16 @@ public class TestRegularExpressionMatching {
         System.out.println(s.substring(3,s.length()));
         System.out.println(s.substring(4,s.length()));
         System.out.println("[END]");
+    }
+
+
+    @Test
+    public void testSimplyExpression(){
+        assertEquals("babaa*c", simplyExpression("babaa*a*a*a*a*a*a*a*a*a*c"));
+        assertEquals("abcd", simplyExpression("abcd"));
+        assertEquals("", simplyExpression(""));
+        assertEquals("a*", simplyExpression("a*"));
+        assertEquals("a*", simplyExpression("a*a"));
+        assertEquals("c*", simplyExpression("c*c*"));
     }
 }

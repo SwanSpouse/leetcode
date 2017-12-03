@@ -2,12 +2,36 @@ package strings;
 
 public class RegularExpressionMatching {
 
+    public static String simplyExpression(String p) {
+        if (p.length() == 0) {
+            return p;
+        }
+        boolean isEndWithStar = p.charAt(p.length() - 1) == '*';
+        String[] fields = p.split("\\*");
+        String ret = fields[0];
+
+        for (int i = 0; i < fields.length - 1; i++) {
+            if (fields[i].endsWith(fields[i + 1])) {
+                if (i + 1 == fields.length - 1) {
+                    ret += "*";
+                }
+                continue;
+            }
+            ret += "*" + fields[i + 1];
+        }
+        if (isEndWithStar) {
+            ret = ret + "*";
+        }
+        return ret.replace("**", "*");
+    }
+
     /**
      * s: a*b*c*
      * p: aab
      */
-
     public static boolean isMatch(String s, String p) {
+        p = simplyExpression(p);
+        System.out.println(p);
         if (p.equals(s)) {
             return true;
         }
@@ -42,6 +66,7 @@ public class RegularExpressionMatching {
     }
 
     public static void main(String[] args) {
-        System.out.println(isMatch("aa", "a*"));
+//        System.out.println(isMatch("aa", "a*"));
+        System.out.println(isMatch("cacbcacbacbccac", ".*c*c*bb*c*..*a*a"));
     }
 }

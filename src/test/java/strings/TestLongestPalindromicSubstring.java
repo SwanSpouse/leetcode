@@ -7,7 +7,7 @@ import static strings.LongestPalindromicSubstring.longestPalindrome;
 
 public class TestLongestPalindromicSubstring {
     @Test
-    public void TestLongestPalindromicSubstring() {
+    public void testLongestPalindromicSubstring() {
         assertEquals("bab", longestPalindrome("babad"));
         assertEquals("bb", longestPalindrome("cbbd"));
     }

@@ -8,7 +8,7 @@ import static strings.StringToInteger.myAtoi;
 public class TestStringToInteger {
 
     @Test
-    public void TestConvert() {
+    public void testConvert() {
         assertEquals(103, myAtoi("103"));
         assertEquals(-5467, myAtoi("-5467"));
         assertEquals(0, myAtoi("+-2"));

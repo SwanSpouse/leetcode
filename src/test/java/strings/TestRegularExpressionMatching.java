@@ -21,6 +21,7 @@ public class TestRegularExpressionMatching {
         assertEquals(true, isMatch("aaa", "a*a"));
         assertEquals(true, isMatch("", "c*c*"));
         assertEquals(false, isMatch("cacbcacbacbccac", ".*c*c*bb*c*..*a*a"));
+        assertEquals(false, isMatch("aaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*c"));
     }
 
     @Test
@@ -40,7 +41,7 @@ public class TestRegularExpressionMatching {
         assertEquals("abcd", simplyExpression("abcd"));
         assertEquals("", simplyExpression(""));
         assertEquals("a*", simplyExpression("a*"));
-        assertEquals("a*", simplyExpression("a*a"));
         assertEquals("c*", simplyExpression("c*c*"));
+        assertEquals("a*a", simplyExpression("a*a"));
     }
 }

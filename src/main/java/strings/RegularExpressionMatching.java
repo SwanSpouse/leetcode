@@ -12,26 +12,20 @@ public class RegularExpressionMatching {
 
         for (int i = 0; i < fields.length - 1; i++) {
             if (fields[i].endsWith(fields[i + 1])) {
-                if (i + 1 == fields.length - 1) {
-                    ret += "*";
+                if (i + 1 == fields.length - 1 && !isEndWithStar) {
+                    ret += "*" + fields[i+1];
                 }
                 continue;
             }
             ret += "*" + fields[i + 1];
         }
-        if (isEndWithStar) {
+        if (isEndWithStar && !ret.endsWith("*")) {
             ret = ret + "*";
         }
-        return ret.replace("**", "*");
+        return ret;
     }
 
-    /**
-     * s: a*b*c*
-     * p: aab
-     */
-    public static boolean isMatch(String s, String p) {
-        p = simplyExpression(p);
-        System.out.println(p);
+    public static boolean isMatchSimple(String s, String p) {
         if (p.equals(s)) {
             return true;
         }
@@ -46,23 +40,33 @@ public class RegularExpressionMatching {
             // 相等             2. 吞掉p的一个a
             // 相等             3. 过滤a*, 同时吞掉一个a
             if (s.length() == 0) {
-                return isMatch(s, p.substring(2, p.length()));
+                return isMatchSimple(s, p.substring(2, p.length()));
             }
             if (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0)) {
-                return isMatch(s, p.substring(2, p.length())) || isMatch(s.substring(1, s.length()), p) || isMatch(s.substring(1, s.length()), p.substring(2, p.length()));
+                return isMatchSimple(s, p.substring(2, p.length())) || isMatchSimple(s.substring(1, s.length()), p) || isMatchSimple(s.substring(1, s.length()), p.substring(2, p.length()));
             } else {
-                return isMatch(s, p.substring(2, p.length()));
+                return isMatchSimple(s, p.substring(2, p.length()));
             }
         } else {
             if (s.length() == 0) {
                 return false;
             }
             if (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0)) {
-                return isMatch(s.substring(1, s.length()), p.substring(1, p.length()));
+                return isMatchSimple(s.substring(1, s.length()), p.substring(1, p.length()));
             } else {
                 return false;
             }
         }
+    }
+
+    /**
+     * s: a*b*c*
+     * p: aab
+     */
+    public static boolean isMatch(String s, String p) {
+        String ps = simplyExpression(p);
+//        System.out.println(p + " ==> " + ps);
+        return isMatchSimple(s, ps);
     }
 
     public static void main(String[] args) {

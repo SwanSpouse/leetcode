@@ -7,7 +7,7 @@ import java.util.*;
 *	这里面有个问题是这个closet的初始值。这个如果设置成最大会有问题啊。TODO lmj
 */
 
-class ThreeSumCloset {
+class ThreeSumCloest {
 
     public int threeSumClosest(int[] nums, int target) {
     	Arrays.sort(nums);

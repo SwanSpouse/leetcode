@@ -14,10 +14,17 @@ public class LinkedList {
         return dummy.next;
     }
 
+    private static final int warningLimit = 15;
+
     public static void printLinkedList(ListNode header) {
-        while(header != null) {
+        int count = 0;
+        while(header != null && count < warningLimit) {
             System.out.print(header);
             header = header.next;
+            count += 1;
+        }
+        if (count >= warningLimit) {
+            System.out.println("\n【严重告警】遍历链表的过程中出现死循环");
         }
         System.out.println();
     }

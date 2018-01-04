@@ -11,9 +11,16 @@ public class Print {
         System.out.println();
     }
 
-    public static void PrintArr(List<? extends  Object> list) {
+    public static void PrintList(List<? extends  Object> list) {
         for(Object item : list) {
-            System.out.print(" ,");
+            System.out.print(item + ", ");
+        }
+        System.out.println();
+    }
+
+    public static void PrintArr(int[] arr) {
+        for(int item : arr) {
+            System.out.print(item + ", ");
         }
         System.out.println();
     }

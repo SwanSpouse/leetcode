@@ -2,33 +2,48 @@ package linkedlist;
 
 public class MergeKSortedLists {
     public static ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) {
+        if(lists.length == 0) {
             return null;
         }
-        ListNode dummy = new ListNode(-1);
-        ListNode newListTail = dummy;
+        return mergeHelper(lists, 0, lists.length - 1);
+    }
 
-        boolean isAllNull = false;
-        while (!isAllNull) {
-            isAllNull = true;
-            int minValPos = -1;
-            int minVal = Integer.MAX_VALUE;
-            for (int i = 0; i < lists.length; i++) {
-                int val = lists[i] == null ? Integer.MAX_VALUE : lists[i].val;
-                if (minVal > val) {
-                    minValPos = i;
-                    minVal = lists[i].val;
-                    isAllNull = false;
-                }
-            }
-            if (!isAllNull) {
-                newListTail.next = lists[minValPos];
-                newListTail = newListTail.next;
-                lists[minValPos] = lists[minValPos].next;
+    /**
+     * 这个做法很精彩。假定这些数据长度都差不多。然后两两merge
+     */
+    public static ListNode mergeHelper(ListNode[] lists, int start, int end) {
+        if(start == end) {
+            return lists[start];
+        }
+        if(start > end) {
+            return null;
+        }
+        int mid = start + (end - start) / 2;
+        ListNode left = mergeHelper(lists, start, mid);
+        ListNode right = mergeHelper(lists, mid + 1, end);
+        return mergeTwoLists(left, right);
+    }
+
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode res = dummy;
+        while(l1 != null && l2 != null) {
+            if(l1.val <= l2.val) {
+                dummy.next = l1;
+                l1 = l1.next;
+                dummy = dummy.next;
+            } else {
+                dummy.next = l2;
+                l2 = l2.next;
+                dummy = dummy.next;
             }
         }
-
-        return dummy.next;
+        if(l1 == null) {
+            dummy.next = l2;
+        } else {
+            dummy.next = l1;
+        }
+        return res.next;
     }
 
     public static void main(String[] args) {

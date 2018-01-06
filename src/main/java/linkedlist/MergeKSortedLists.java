@@ -10,6 +10,7 @@ public class MergeKSortedLists {
 
     /**
      * 这个做法很精彩。假定这些数据长度都差不多。然后两两merge
+     * TODO lmj 写文章
      */
     public static ListNode mergeHelper(ListNode[] lists, int start, int end) {
         if(start == end) {

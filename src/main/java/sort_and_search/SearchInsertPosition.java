@@ -1,4 +1,4 @@
-package sort;
+package sort_and_search;
 
 /**
  *  二分查找的简单变型。

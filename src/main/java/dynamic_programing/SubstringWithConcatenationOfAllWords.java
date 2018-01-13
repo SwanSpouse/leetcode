@@ -4,7 +4,9 @@ import java.util.*;
 
 /**
  * 暂时还没有想到这道题的考点。就给它归为dp问题吧。
- * 初步想法： 把所有能够用words组成的字符串存成一个Set<String>，然后来依次从s中取子串。（dfs问题）超时了。
+ * 初步想法：
+ *      把所有能够用words组成的字符串存成一个Set<String>，然后来依次从s中取子串。（dfs问题）超时了。
+ *      问题出在dfs上面。应该有更好的办法来解决这个问题。
  */
 class SubstringWithConcatenationOfAllWords {
 

@@ -63,12 +63,23 @@ class SudokuSolver {
         return true;
     }
 
-    public static boolean dfs(char[][] borad, int i, int j) {
-    	
-    }
+    public static void dfs(char[][] board, int i, int j) {
+        if ( i >= board.length || j >= board.length ) {
+            return ;
+        }
+        i = j + 1 < board.length ? i : i + 1;
+        j = j + 1 < board.length ? j + 1 : 0;
+
+        for(int ch =0; ch < 9; ch ++ ) {
+            board[i][j] = ch + '1';
+            if( !isValidSudoku(board)) {
+                continue;
+            } 
+        }
+    }   
 
 	public static void solveSudoku(char[][] board) {
-
+        dfs(board, 0, 0); 
     }
 }
 

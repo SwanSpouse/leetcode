@@ -20,7 +20,7 @@ class CombinationSum {
 
         for(int i= curIndex; i < candidates.length; i ++ ) {
             if(curSum + candidates[i]  > target) {
-                return  ;
+                continue  ;
             } else {
                 cur.add(candidates[i]);
                 dfs(ret, cur, curSum + candidates[i], candidates, target, i);
@@ -30,7 +30,7 @@ class CombinationSum {
     }
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        ArrayList<ArrayList<Integer>>ret = new ArrayList<List<Integer>>();
+        List<List<Integer>>ret = new ArrayList<List<Integer>>();
         ArrayList<Integer> cur = new ArrayList<Integer>();
         dfs(ret, cur, 0, candidates, target, 0);
         return ret;

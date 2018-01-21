@@ -6,11 +6,11 @@ package detail;
 class PlusOne {
 
 	public static int[] plusOne(int[] digits) {
-		int carry = 0;
+		int carry = 1;
 		for(int i=digits.length -1; i >=0; i --) {
-			int bit = i == digits.length - 1?  1: 0;
-			digits[i] = (carry + bit + digits[i]) %10;
-			carry = (carry + bit + digits[i]) / 10;
+			int cur = (carry + digits[i]) %10;
+			carry = (carry + digits[i]) / 10;
+            digits[i] = cur;
 		}
 		if(carry == 0) {
 			return digits;

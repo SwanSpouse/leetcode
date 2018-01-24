@@ -3,7 +3,7 @@ package detail;
 /**
  * 这题的考点就在于那个越界的判断。要大概知道Java int的最大值大约是21亿左右。
  */ 
-calss SqrtX {
+class SqrtX {
     public static int mySqrt(int x) {
         if( x <= 1) {
             return x;

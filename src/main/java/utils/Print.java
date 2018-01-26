@@ -18,6 +18,15 @@ public class Print {
         System.out.println();
     }
 
+    public static void Print2DList(List<List<? extends Object>> board) {
+        for(List<? extends Object> list : board) {
+            for(Object item : list){
+                System.out.print(item +", ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void PrintArr(int[] arr) {
         for (int item : arr) {
             System.out.print(item + ", ");

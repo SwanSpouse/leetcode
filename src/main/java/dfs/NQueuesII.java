@@ -80,19 +80,4 @@ class NQueuesII {
         dfs(ret, board, 0);
         return ret.size();
     }
-
-    public static void main(String[] args) {
-        List<List<String>> ret = solveNQueens(4);
-        System.out.println();
-        print(ret);
-    }
-
-    public static void print(List<List<String>> bord) {
-        for (List<String> list : bord) {
-            for (String item : list) {
-                System.out.println(item);
-            }
-            System.out.println("===========");
-        }
-    }
 }

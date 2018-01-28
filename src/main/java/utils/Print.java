@@ -34,7 +34,16 @@ public class Print {
         System.out.println();
     }
 
-    public static void Print2DCharArr(char[][] arr) {
+    public static void Print2DArr(char[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void Print2DArr(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.print(arr[i][j]+" ");

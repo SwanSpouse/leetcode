@@ -146,6 +146,6 @@ class SudokuSolver {
         System.out.println();
         System.out.println();
         System.out.println();
-        Print.Print2DCharArr(board);
+        Print.Print2DArr(board);
     }
 }

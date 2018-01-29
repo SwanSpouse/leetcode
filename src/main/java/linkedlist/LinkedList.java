@@ -2,11 +2,11 @@ package linkedlist;
 
 public class LinkedList {
 
-    public static ListNode constructLinkedList(int[]nums){
+    public static ListNode constructLinkedList(int[] nums) {
         ListNode dummy = new ListNode(-1);
-        ListNode head  = dummy;
+        ListNode head = dummy;
 
-        for(int num : nums) {
+        for (int num : nums) {
             ListNode newNode = new ListNode(num);
             head.next = newNode;
             head = head.next;
@@ -17,8 +17,11 @@ public class LinkedList {
     private static final int warningLimit = 15;
 
     public static void printLinkedList(ListNode header) {
+        if (header == null) {
+            System.out.println("[NULL]");
+        }
         int count = 0;
-        while(header != null && count < warningLimit) {
+        while (header != null && count < warningLimit) {
             System.out.print(header);
             header = header.next;
             count += 1;

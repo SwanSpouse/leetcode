@@ -1,10 +1,11 @@
 package dfs;
 
-import java.util.HashMap;
-
 /**
  * dfs的经典题
  * 超时了。难点在于剪枝。
+ *
+ * 想多了。这道题就是反向算最简单。
+ *
  */
 class UniquePaths {
     class Point {
@@ -55,37 +56,28 @@ class UniquePaths {
     //     return dfs(0, m, n, 0, 0);
     // }
 
-    public int dfs(int ret, HashMap<Point, Integer> map, int m, int n, int line, int row) {
-        if (line == m - 1 && row == n - 1) {
-            return 1;
+    public static void calPath(int[][] ret, int m, int n) {
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (i == m - 1 && j == n - 1) {
+                    ret[i][j] = 1;
+                    continue;
+                }
+                int rightVal = j + 1 > n - 1 ? 0 : ret[i][j + 1];
+                int downVal = i + 1 > m - 1 ? 0 : ret[i + 1][j];
+                ret[i][j] = rightVal + downVal;
+            }
         }
-        if (line > m - 1 || row > n - 1) {
-            return 0;
-        }
-        Point down = new Point(line +1 , row);
-        int downValue = 0;
-        if(map.containsKey(down)){
-            downValue = map.get(down);
-        } else {
-            downValue = dfs(ret, map, m, n, line +1 , row);
-            map.put(down, downValue);
-        }
-
-        Point right = new Point(line, row + 1);
-        int rightValue = 0;
-        if(map.containsKey(right)){
-            rightValue = map.get(right);
-        }else{
-            rightValue = dfs(ret, map, m,n, line, row+1);
-            map.put(right, rightValue);
-        }
-        map.put(cur, downValue + rightValue);
-        return downValue + rightValue;
     }
 
-    public int uniquePaths(int m, int n) {
-        HashMap<Point, Integer> map = new HashMap<Point, Integer>();
-        return dfs(0, map, m, n, 0, 0);
+    public static int uniquePaths(int m, int n) {
+        int[][] ret = new int[m][n];
+        calPath(ret, m, n);
+        return ret[0][0];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(uniquePaths(3, 7));
     }
 }
 

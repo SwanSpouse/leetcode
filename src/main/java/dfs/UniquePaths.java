@@ -62,14 +62,25 @@ class UniquePaths {
         if (line > m - 1 || row > n - 1) {
             return 0;
         }
-        Point cur = new Point(line, row);
-        if (map.containsKey(cur)) {
-            System.out.println(cur);
-            return map.get(cur);
+        Point down = new Point(line +1 , row);
+        int downValue = 0;
+        if(map.containsKey(down)){
+            downValue = map.get(down);
+        } else {
+            downValue = dfs(ret, map, m, n, line +1 , row);
+            map.put(down, downValue);
         }
-        int curValue = dfs(ret, map, m, n, line + 1, row) + dfs(ret, map, m, n, line, row + 1);
-        map.put(cur, curValue);
-        return curValue;
+
+        Point right = new Point(line, row + 1);
+        int rightValue = 0;
+        if(map.containsKey(right)){
+            rightValue = map.get(right);
+        }else{
+            rightValue = dfs(ret, map, m,n, line, row+1);
+            map.put(right, rightValue);
+        }
+        map.put(cur, downValue + rightValue);
+        return downValue + rightValue;
     }
 
     public int uniquePaths(int m, int n) {
@@ -77,3 +88,13 @@ class UniquePaths {
         return dfs(0, map, m, n, 0, 0);
     }
 }
+
+
+
+
+
+
+
+
+
+

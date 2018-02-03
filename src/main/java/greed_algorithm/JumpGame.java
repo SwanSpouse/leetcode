@@ -1,4 +1,4 @@
-package dfs;
+package greed_algorithm;
 
 /**
  *   一开始就想到用dfs的方法来求解，发现超时了。

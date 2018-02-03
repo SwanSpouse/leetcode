@@ -1,4 +1,4 @@
-package dfs;
+package dynamic_programing;
 
 
 /**

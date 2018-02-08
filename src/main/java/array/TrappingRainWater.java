@@ -1,5 +1,7 @@
 package array;
 
+import utils.Print;
+
 import java.util.ArrayList;
 
 /**
@@ -8,11 +10,16 @@ import java.util.ArrayList;
 class TrappingRainWater {
 
     public static int getWater(int[] height, int leftPeek, int rightPeek) {
-        int min = height[leftPeek] < height[rightPeek] ?  height[leftPeek] : height[rightPeek];
+        int min = height[leftPeek] < height[rightPeek] ? height[leftPeek] : height[rightPeek];
         int ret = min * (rightPeek - leftPeek - 1);
         for (int i = leftPeek + 1; i < rightPeek; i++) {
-            ret = ret - height[i];
+            if (height[i] > min) {
+                ret = ret - min;
+            } else {
+                ret = ret - height[i];
+            }
         }
+        System.out.println("left " + leftPeek + " right " + rightPeek + " value " + ret);
         return ret;
     }
 
@@ -30,11 +37,16 @@ class TrappingRainWater {
                 if (height[i] > height[i - 1]) {
                     peeks.add(i);
                 }
-            } else if (height[i] >= height[i - 1] && height[i] >= height[i + 1]) {
+            } else if (height[i] > height[i - 1] && height[i] > height[i + 1]) {
+                peeks.add(i);
+            } else if (height[i] == height[i - 1] && height[i] > height[i + 1]) {
+                peeks.add(i);
+            } else if (height[i] > height[i - 1] && height[i] == height[i + 1]) {
                 peeks.add(i);
             }
         }
-        if (peeks.size() <= 2) {
+        Print.PrintList(peeks);
+        if (peeks.size() < 2) {
             return 0;
         }
         int ret = 0;
@@ -45,6 +57,10 @@ class TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        System.out.println(trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+/*        System.out.println(trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        System.out.println(trap(new int[]{1, 1, 2, 3, 2, 1, 1}));
+        System.out.println(trap(new int[]{3, 3, 2, 1, 2, 3, 1}));
+        System.out.println(trap(new int[]{3, 1, 5, 1, 3}));*/
+        System.out.println(trap(new int[]{5, 4, 1, 2}));
     }
 }

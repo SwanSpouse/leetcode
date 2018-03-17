@@ -18,10 +18,10 @@ public class Print {
         System.out.println();
     }
 
-    public static void Print2DList(List<List<? extends Object>> board) {
-        for(List<? extends Object> list : board) {
-            for(Object item : list){
-                System.out.print(item +", ");
+    public static void Print2DIntegerList(List<List<Integer>> board) {
+        for (List<Integer> list : board) {
+            for (Object item : list) {
+                System.out.print(item + ", ");
             }
             System.out.println();
         }
@@ -37,7 +37,7 @@ public class Print {
     public static void Print2DArr(char[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j]+"\t");
+                System.out.print(arr[i][j] + "\t");
             }
             System.out.println();
         }
@@ -46,7 +46,7 @@ public class Print {
     public static void Print2DArr(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j]+"\t");
+                System.out.print(arr[i][j] + "\t");
             }
             System.out.println();
         }

@@ -6,17 +6,17 @@ public class RestoreIPAddresses {
 
     public int getValidAddInt(String input) {
         // 位数超过3位或者为0，肯定不是有效的。
-        if(input.size() > 3 || input.size() == 0) {
+        if(input.length() > 3 || input.length() == 0) {
             return -1;
         }
         // 位数超过1位且第一位为0，肯定不是有效的
-        if(input.size() > 1 && input[0] == '0') {
+        if(input.length() > 1 && input.charAt(0) == '0') {
             return -1;
         }
         // 转换为int
         int intVal = Integer.parseInt(input);
         // 如果转换后的值为0，但是长度不为1，属于00这种情况的。肯定不对。
-        if (intVal == 0 && input.size() > 1) {
+        if (intVal == 0 && input.length() > 1) {
             return -1;
         }
         // 剩下的应该都是有效情况。
@@ -25,7 +25,7 @@ public class RestoreIPAddresses {
 
     // 把数组中的Integer拼成IP地址
     public String getIPAddrFromString(List<Integer> input) {
-        String ret;
+        String ret = "";
         for(int i=0; i < input.size()-1; i ++ ){
             ret += input.get(i) + ".";
         }
@@ -45,9 +45,6 @@ public class RestoreIPAddresses {
             String headPart = input.substring(0, i);
             String tailPart = input.substring(i+1);
             int headPartInt = getValidAddInt(headPart);
-            if (headPart != -1) {
-
-            }
         }
     }
 

@@ -1,58 +1,64 @@
 package dfs;
 
+import utils.Print;
+
 import java.util.*;
 
+/**
+ * dfs问题，其实在剪枝的问题上还可以继续优化。
+ *      本次取1~3位数字后，剩下的长度会有要求。
+ */
 public class RestoreIPAddresses {
 
-    public int getValidAddInt(String input) {
-        // 位数超过3位或者为0，肯定不是有效的。
-        if(input.length() > 3 || input.length() == 0) {
-            return -1;
-        }
-        // 位数超过1位且第一位为0，肯定不是有效的
-        if(input.length() > 1 && input.charAt(0) == '0') {
-            return -1;
-        }
-        // 转换为int
-        int intVal = Integer.parseInt(input);
-        // 如果转换后的值为0，但是长度不为1，属于00这种情况的。肯定不对。
-        if (intVal == 0 && input.length() > 1) {
-            return -1;
-        }
-        // 剩下的应该都是有效情况。
-        return intVal;
+    public static List<String> restoreIpAddresses(String s) {
+        ArrayList<String> ret = new ArrayList();
+        HashSet<String> set = new HashSet();
+        dfs(ret, set, s, "", 0);
+        return ret;
     }
 
-    // 把数组中的Integer拼成IP地址
-    public String getIPAddrFromString(List<Integer> input) {
-        String ret = "";
-        for(int i=0; i < input.size()-1; i ++ ){
-            ret += input.get(i) + ".";
+    public static void dfs(ArrayList<String>ret, HashSet<String>set, String input, String curIP, int count) {
+        if (count > 3 ) {
+            return;
         }
-        return ret + input.get(input.size()-1);
-    }
-
-    // 127.0.0.1 需要考虑的情况还是挺多的。有可能包含两个00。 这样的需要进行剪枝处理。
-    public void dfs(List<String> ret, HashSet<String> set, String input, List<Integer> current, int parseCount) {
-        if( parseCount == 2) {
-            int inputVal = getValidAddInt(input);
-            if(inputVal != -1) {
-
-                return ;
+        // 前面已经切了三段了，就看剩下这段合不合法就好了。
+        if (count == 3 && !set.contains(curIP+"."+ input) && isValidIPAddrSplit(input)) {
+            set.add(curIP+"."+ input);
+            ret.add(curIP+"."+ input);
+            return ;
+        }
+        // 如果分段的次数没有到三次，本次可以取input的1位、2位、3位 三种选择
+        for(int i=1; i <= 3; i ++ ) {
+            if (i+1 > input.length()) {
+                break;
+            }
+            String header = input.substring(0, i);
+            String tail   = input.substring(i);
+            if (isValidIPAddrSplit(header)) {
+                String temp = curIP.equals("") ? header : curIP+"."+ header;
+                dfs(ret, set, tail, temp, count + 1);
             }
         }
-        for(int i=1; i <= 3;  i ++ ) {
-            String headPart = input.substring(0, i);
-            String tailPart = input.substring(i+1);
-            int headPartInt = getValidAddInt(headPart);
+    }
+
+    public static boolean isValidIPAddrSplit(String input) {
+        try{
+            int addr = Integer.parseInt(input);
+            if (addr < 0 || addr > 255) {
+                return false;
+            } else if (addr == 0 && input.length() != 1 ) {
+                return false;
+            } else if (addr >0 && input.startsWith("0")) {
+                return false ;
+            }
+            return true ;
+        }catch (Exception e ) {
+            return false;
         }
     }
 
-    public List<String> restoreIpAddresses(String s) {
-        ArrayList<String> ret = new ArrayList<String>();
-        HashSet<String> set   = new HashSet<String>();
-        ArrayList<Integer> current = new ArrayList<Integer>();
-        dfs(ret, set, s, current, 0);
-        return ret;
+    public static void main(String[] args) {
+//        Print.PrintList(restoreIpAddresses("25525511135"));
+        Print.PrintList(restoreIpAddresses("127001"));
     }
 }

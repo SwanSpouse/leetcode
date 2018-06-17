@@ -15,6 +15,9 @@ class Tree {
         return newTreeNodeFromArray(input, 0);
     }
 
+    public static TreeLinkNode constructLinkTree(char[] input) {
+        return newTreeLinkNodeFromArray(input, 0);
+    }
 
     public static TreeNode newTreeNodeFromArray(int[] input, int pos) {
         if (input.length == 0 || pos >= input.length) {
@@ -37,6 +40,18 @@ class Tree {
         int right = (pos + 1) * 2;
         root.left = newTreeNodeFromArray(input, left);
         root.right = newTreeNodeFromArray(input, right);
+        return root;
+    }
+
+    public static TreeLinkNode newTreeLinkNodeFromArray(char[]input, int pos) {
+        if (input.length == 0 || pos >= input.length || input[pos] == '#') {
+            return null;
+        }
+        TreeLinkNode root = new TreeLinkNode(Integer.parseInt(input[pos] + ""));
+        int left = (pos + 1) * 2 - 1;
+        int right = (pos + 1) * 2;
+        root.left = newTreeLinkNodeFromArray(input, left);
+        root.right = newTreeLinkNodeFromArray(input, right);
         return root;
     }
 

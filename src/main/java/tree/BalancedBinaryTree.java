@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.HashMap;
+
 /**
  * 这里引入了map是为了防止重复计算。
  */

@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SumRootToLeafNumbers {
 
 	public void genNumbers(List<Integer> nums, int cur, TreeNode node) {
@@ -20,7 +23,7 @@ public class SumRootToLeafNumbers {
 			return 0;
 		}
 		List<Integer> numList = new ArrayList<Integer>();
-		genNumbers(numList, 0, node);
+		genNumbers(numList, 0, root);
 
 		int ret = 0;
 		for(Integer val: numList) {

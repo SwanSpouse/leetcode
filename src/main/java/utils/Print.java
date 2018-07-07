@@ -34,6 +34,13 @@ public class Print {
         System.out.println();
     }
 
+    public static void PrintArr(boolean[] arr) {
+        for (boolean item : arr) {
+            System.out.print(item + ", ");
+        }
+        System.out.println();
+    }
+
     public static void Print2DArr(char[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {

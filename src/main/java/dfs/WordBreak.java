@@ -1,37 +1,31 @@
 package dfs;
 
-import java.util.Collections;
+import utils.Print;
+
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
 public class WordBreak {
-    public boolean dfs(String s, List<String> wordDict) {
-        if (s.length() == 0) {
-            return true;
-        }
-        for (String word : wordDict) {
-            if (s.startsWith(word) && dfs(s.substring(word.length()), wordDict)) {
-                return true;
+    public static boolean wordBreak(String s, List<String> wordDict) {
+        HashSet<String> set = new HashSet<String>(wordDict);
+
+        boolean[] dp = new boolean[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            if (i != 0 && dp[i - 1] == false) {
+                continue;
+            }
+            for (String word : set) {
+                if (i + word.length() <= s.length() && word.contains(s.substring(i, i + word.length()))) {
+                    dp[i + word.length() - 1] = true;
+                }
             }
         }
-        return false;
+        return dp[dp.length - 1];
     }
 
-    public boolean wordBreak(String s, List<String> wordDict) {
-        // 做一个简单的剪枝操作
-        HashSet<Character> chars = new HashSet<Character>();
-        for (String word : wordDict) {
-            for(Character c : word.toCharArray()) {
-                chars.add(c);
-            }
-        }
-        for(Character c : s.toCharArray()) {
-            if(!chars.contains(c)) {
-                return false;
-            }
-        }
-        Collections.sort(wordDict);
-        Collections.reverse(wordDict);
-        return dfs(s, wordDict);
+    public static void main(String[] args) {
+        String[] words = new String[]{"cats", "dog", "sand", "and", "cat"};
+        System.out.println(wordBreak("catsandog", Arrays.asList(words)));
     }
 }

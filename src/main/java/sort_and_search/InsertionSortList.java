@@ -43,6 +43,5 @@ public class InsertionSortList {
         head = LinkedList.constructLinkedList(new int[]{-1, 5, 3, 4, 0});
         newHead = new InsertionSortList().insertionSortList(head);
         LinkedList.printLinkedList(newHead);
-
     }
 }

@@ -1,6 +1,10 @@
 package array;
 
 public class FindPeakElement {
+
+    /*
+    这道题为啥难度是Medium呢？
+     */
     public int findPeakElement(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             int left = i == 0 ? Integer.MIN_VALUE : nums[i - 1];

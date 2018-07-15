@@ -2,11 +2,11 @@ package array;
 
 public class ExcelSheetColumnTitle {
 
-    public static Character int2Char(int n) {
+    public Character int2Char(int n) {
         return (char) ('A' + n - 1);
     }
 
-    public static String convertToTitle(int n) {
+    public String convertToTitle(int n) {
         String ret = "";
         while (n != 0) {
             if (n % 26 == 0) {
@@ -18,14 +18,5 @@ public class ExcelSheetColumnTitle {
             }
         }
         return ret;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(convertToTitle(1));
-        System.out.println(convertToTitle(701));
-        System.out.println(convertToTitle(729));
-        System.out.println(convertToTitle(28));
-        System.out.println(convertToTitle(52));
-        System.out.println(convertToTitle(26));
     }
 }

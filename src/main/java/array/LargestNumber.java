@@ -12,18 +12,15 @@ public class LargestNumber {
         Collections.sort(list, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                int cur1 = 0;
-                int cur2 = 0;
-                while (cur1 < o1.length() || cur2 < o2.length()) {
-                    char c1 = cur1 < o1.length() ? o1.charAt(cur1++) : o1.charAt(0);
-                    char c2 = cur2 < o2.length() ? o2.charAt(cur2++) : o2.charAt(0);
-                    if (c1 < c2) {
-                        return 1;
-                    } else if (c1 > c2) {
-                        return -1;
-                    }
+                long num1 = Long.parseLong(o1 + o2);
+                long num2 = Long.parseLong(o2 + o1);
+                if (num1 > num2) {
+                    return -1;
+                } else if (num1 < num2) {
+                    return 1;
+                } else {
+                    return 0;
                 }
-                return 0;
             }
         });
 

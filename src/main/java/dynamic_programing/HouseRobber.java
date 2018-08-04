@@ -23,4 +23,8 @@ public class HouseRobber {
         }
         return max;
     }
+
+    public static void main(String[] args) {
+        System.out.println(new HouseRobber().rob(new int[]{4, 3, 5, 6, 1, 2, 0, 4, 2, 5}));
+    }
 }

@@ -3,7 +3,7 @@ package others_test;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static others.ReverseInteger.reverse;
+import static detail.ReverseInteger.reverse;
 
 public class TestReverseInteger {
 

@@ -3,7 +3,7 @@ package others_test;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static others.PalindromeNumber.isPalindrome;
+import static detail.PalindromeNumber.isPalindrome;
 
 public class TestPalindromeNumber {
 

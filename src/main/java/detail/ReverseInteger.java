@@ -1,4 +1,4 @@
-package others;
+package detail;
 
 public class ReverseInteger {
     public static int reverse(int x) {

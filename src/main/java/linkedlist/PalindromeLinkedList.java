@@ -19,6 +19,7 @@ public class PalindromeLinkedList {
         if (head == null || head.next == null) {
             return true;
         }
+        // 快慢指针发可以通过最后是fast指针为空还是fast.next为空来判定节点的奇偶数。
         int length = 0;
         for (ListNode node = head; node != null; node = node.next, length += 1) ;
 

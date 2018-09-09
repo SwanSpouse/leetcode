@@ -14,6 +14,14 @@ public class MoveZeroes {
         }
     }
 
+//    public void moveZeros2(int[] nums) {
+//        for (int i = 0, j = 0; i < nums.size(); ++i) {
+//            if (nums[i]) {
+//                swap(nums[i], nums[j++]);
+//            }
+//        }
+//    }
+
     public static void main(String[] args) {
         int[] nums = new int[]{0, 1, 0, 3, 12};
 //        int[] nums = new int[]{0, 0, 1};

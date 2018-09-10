@@ -4,55 +4,55 @@ import utils.Print;
 
 public class MergeSort {
 
-    public static int[] merge(int[] left, int[] right) {
-        int[] ret = new int[left.length + right.length];
-        int i = 0;
-        int index1 = 0, index2 = 0;
-        while (index1 < left.length && index2 < right.length) {
-            if (left[index1] <= right[index2]) {
-                ret[i++] = left[index1++];
+    public static void merge(int[] input, int left, int mid, int right, int[] temp) {
+        int i = left;
+        int j = mid + 1;
+        int index = left;
+        while (i <= mid && j <= right) {
+            if (input[i] < input[j]) {
+                temp[index++] = input[i++];
             } else {
-                ret[i++] = right[index2++];
+                temp[index++] = input[j++];
             }
         }
-        while (index1 < left.length) {
-            ret[i++] = left[index1++];
+        while (i <= mid) {
+            temp[index++] = input[i++];
         }
-        while (index2 < right.length) {
-            ret[i++] = right[index2++];
+        while (j <= right) {
+            temp[index++] = input[j++];
         }
-        return ret;
+        // 将排序结果写回input
+        for (i = left; i <= right; i++) {
+            input[i] = temp[i];
+        }
     }
 
-    public static int[] mergeSort(int[] input) {
-        if (input.length <= 1) {
-            return input;
+    public static void sort(int[] input, int left, int right, int[] temp) {
+        if (left >= right) {
+            return;
         }
+        int mid = left + (right - left) / 2;
+        sort(input, left, mid, temp);
+        sort(input, mid + 1, right, temp);
+        merge(input, left, mid, right, temp);
+    }
 
-        int mid = input.length / 2;
-        int[] left = new int[mid];
-        for (int i = 0, index = 0; i < mid; i++, index++) {
-            left[index] = input[i];
-        }
-
-        int[] right = new int[input.length - mid];
-        for (int i = mid, index = 0; i < input.length; i++, index++) {
-            right[index] = input[i];
-        }
-
-        left = mergeSort(left);
-        right = mergeSort(right);
-        return merge(left, right);
+    public static void mergeSort(int[] input) {
+        int[] temp = new int[input.length]; // 这个数据申请的比较精髓，使得后面不用申请无用内存
+        sort(input, 0, input.length - 1, temp);
     }
 
     public static void main(String[] args) {
         int[] input = new int[]{3, 1, 4, 2, 5};
-        Print.PrintArr(mergeSort(input));
+        mergeSort(input);
+        Print.PrintArr(input);
 
         input = new int[]{1, 3, 3, 3, 3, 2};
-        Print.PrintArr(mergeSort(input));
+        mergeSort(input);
+        Print.PrintArr(input);
 
         input = new int[]{6, 5, 4, 3, 2, 1};
-        Print.PrintArr(mergeSort(input));
+        mergeSort(input);
+        Print.PrintArr(input);
     }
 }

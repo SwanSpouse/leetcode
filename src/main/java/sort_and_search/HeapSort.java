@@ -31,10 +31,13 @@ public class HeapSort {
         }
     }
 
+    // 升序是大根堆
     public static void heapSort(int[] input) {
+        // 首先从第一个非叶子节点开始，从后往前进行调整
         for (int i = input.length / 2 - 1; i >= 0; i--) {
             adjust(input, input.length, i);
         }
+        // 从最后一个节点开始，每次取一个堆顶元素和末尾元素交换，确定堆顶元素的位置
         for (int i = input.length - 1; i >= 0; i--) {
             swap(input, 0, i);
             adjust(input, i, 0);

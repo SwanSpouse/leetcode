@@ -1,12 +1,15 @@
 package tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NAryTreePostorderTraversal {
 
     public void postorder(List<Integer> ret, Node root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
-        for(Node node : root.children) {
+        for (Node node : root.children) {
             postorder(ret, node);
         }
         ret.add(root.val);

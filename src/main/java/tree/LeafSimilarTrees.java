@@ -1,12 +1,15 @@
 package tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LeafSimilarTrees {
 
     public void preorder(List<Integer> ret, TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
-        if(root.left == null && root.right == null) {
+        if (root.left == null && root.right == null) {
             ret.add(root.val);
         }
         preorder(ret, root.left);
@@ -23,8 +26,8 @@ public class LeafSimilarTrees {
         List<Integer> ret1 = getAllLeaves(root1);
         List<Integer> ret2 = getAllLeaves(root2);
 
-        for(int i=0; i < ret1.size() && i < ret2.size(); i ++) {
-            if(ret1.get(i) != ret2.get(i)) {
+        for (int i = 0; i < ret1.size() && i < ret2.size(); i++) {
+            if (ret1.get(i) != ret2.get(i)) {
                 return false;
             }
         }

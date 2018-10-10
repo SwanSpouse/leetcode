@@ -1,13 +1,16 @@
 package tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NAryTreePreorderTraversal {
 
     public void preorder(List<Integer> ret, Node root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         ret.add(root.val);
-        for(Node cur : root.children) {
+        for (Node cur : root.children) {
             preorder(ret, cur);
         }
     }

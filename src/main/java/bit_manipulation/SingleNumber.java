@@ -1,4 +1,4 @@
-package bit_operation;
+package bit_manipulation;
 
 public class SingleNumber {
 

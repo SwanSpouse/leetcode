@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Print {
     public static void PrintMap(HashMap<? extends Object, ? extends Object> map) {
+        if (map == null) {
+            System.out.println("NULL");
+            return;
+        }
         for (Object key : map.keySet()) {
             System.out.print("{" + key + ":" + map.get(key) + "}");
         }
@@ -12,6 +16,10 @@ public class Print {
     }
 
     public static void PrintList(List<? extends Object> list) {
+        if (list == null) {
+            System.out.println("NULL");
+            return;
+        }
         for (Object item : list) {
             System.out.print(item + ", ");
         }
@@ -19,7 +27,15 @@ public class Print {
     }
 
     public static void Print2DIntegerList(List<List<Integer>> board) {
+        if (board == null) {
+            System.out.println("NULL");
+            return;
+        }
         for (List<Integer> list : board) {
+            if (list == null) {
+                System.out.println("NULL");
+                continue;
+            }
             for (Object item : list) {
                 System.out.print(item + ", ");
             }

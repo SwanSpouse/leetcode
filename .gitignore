@@ -1,4 +1,9 @@
 *.class
 .idea/*
 new-leetcode.iml
+target/*
+
+
+
+
 newleetcode.iml

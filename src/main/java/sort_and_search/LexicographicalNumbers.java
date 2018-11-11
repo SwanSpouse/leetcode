@@ -5,33 +5,26 @@ import java.util.List;
 
 public class LexicographicalNumbers {
 
-    public void generate(List<Integer> ret, int index, int n) {
-        int cur = ret.get(index) * 10;
-        for (int i = 0; i <= 9; i++) {
-            if (cur + i > n) {
-                break;
-            }
-            ret.add(cur + i);
-            generate(ret, index + 1, n);
-        }
-    }
-
     public List<Integer> lexicalOrder(int n) {
-        ArrayList<Integer> ret = new ArrayList<>();
-        if (n == 0) {
-            return ret;
-        }
-        int index = 0;
-        for (int i = 1; ret.size() < n; i++) {
-            ret.add(i);
-            for (; index < ret.size() && ret.size() < n; index++) {
-                generate(ret, index, n);
+        List<Integer> list = new ArrayList<>(n);
+        int cur = 1;
+        for (int i = 1; i <= n; i++) {
+            list.add(cur);
+            if (cur * 10 <= n) {
+                cur *= 10;
+            } else if (cur % 10 != 9 && cur + 1 <= n) {
+                cur++;
+            } else {
+                while ((cur / 10) % 10 == 9) {
+                    cur /= 10;
+                }
+                cur = cur / 10 + 1;
             }
         }
-        return ret;
+        return list;
     }
 
     public static void main(String[] args) {
-        new LexicographicalNumbers().lexicalOrder(13);
+        new LexicographicalNumbers().lexicalOrder(1300);
     }
 }

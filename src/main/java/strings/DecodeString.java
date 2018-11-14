@@ -13,9 +13,6 @@ public class DecodeString {
     }
 
     public String readString(String s) {
-
-        System.out.println("======>>>" + s.substring(this.index));
-
         StringBuffer ret = new StringBuffer();
         StringBuffer sub = new StringBuffer();
         int number = 0;
@@ -41,18 +38,15 @@ public class DecodeString {
                     ret.append(sub.toString());
                 }
                 this.index += 1;
-                sub = new StringBuffer();
-                number = 0;
-
+                return ret.toString();
             }
         }
         return ret.toString();
     }
 
     public String decodeString(String s) {
-        this.index = 0;
         StringBuffer ret = new StringBuffer();
-
+        this.index = 0;
         while (index < s.length()) {
             ret.append(readString(s));
         }
@@ -65,7 +59,7 @@ public class DecodeString {
 //        System.out.println(new DecodeString().decodeString("2[abc]3[cd]ef"));
 //        System.out.println(new DecodeString().decodeString("2[abc]"));
 //        System.out.println(new DecodeString().decodeString("abc"));
-        System.out.println(new DecodeString().decodeString("2[abc]3[c2[abc]d]ef"));
+        System.out.println(new DecodeString().decodeString("2[abc]3[c2[a3[b]c]d]ef"));
     }
 }
 

@@ -1,37 +1,32 @@
 package dfs;
 
-import java.util.Arrays;
-
 public class PartitionEqualSubsetSum {
 
-    public boolean dfs(int[] nums, int index, int cur, int target) {
-        if (index >= nums.length || cur > target) {
-            return false;
-        }
-        if (cur == target) {
+    public boolean canPartition(int[] nums) {
+        // check edge case
+        if (nums == null || nums.length == 0) {
             return true;
         }
-        for (int i = index; i < nums.length; i++) {
-            if (dfs(nums, i + 1, cur, target)) {
-                return true;
-            }
-            if (dfs(nums, i + 1, cur + nums[i], target)) {
-                return true;
-            }
+        // preprocess
+        int volumn = 0;
+        for (int num : nums) {
+            volumn += num;
         }
-        return false;
-    }
-
-    public boolean canPartition(int[] nums) {
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-        }
-        if (sum % 2 == 1) {
+        if (volumn % 2 != 0) {
             return false;
         }
-        Arrays.sort(nums);
-        return dfs(nums, 0, 0, sum / 2);
+        volumn /= 2;
+        // dp def
+        boolean[] dp = new boolean[volumn + 1];
+        // dp init
+        dp[0] = true;
+        // dp transition
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = volumn; j >= nums[i]; j--) {
+                dp[j] = dp[j] || dp[j - nums[i]];
+            }
+        }
+        return dp[volumn];
     }
 
     public static void main(String[] args) {

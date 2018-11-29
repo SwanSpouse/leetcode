@@ -10,7 +10,7 @@ public class HeapSort {
         input[j] = temp;
     }
 
-    // 一次堆调整
+    // 一次堆调整，向下调整
     public static void adjust(int[] input, int len, int pos) {
         int left = (pos + 1) * 2 - 1;
         int right = (pos + 1) * 2;
@@ -37,12 +37,17 @@ public class HeapSort {
         for (int i = input.length / 2 - 1; i >= 0; i--) {
             adjust(input, input.length, i);
         }
-        // 从最后一个节点开始，每次取一个堆顶元素和末尾元素交换，确定堆顶元素的位置
+        // 从最后一个节点开始，每次取一个堆顶元素和末尾元素交换，然后输出末尾元素
+        // 重新确定堆顶元素的位置
         for (int i = input.length - 1; i >= 0; i--) {
             swap(input, 0, i);
             adjust(input, i, 0);
         }
     }
+
+    /* TODO 上面的所有调整都是向下调整。如果要是往堆里面插入元素，首先把元素放到末端，
+    然后做一次向上调整就好了。不用向下调整。
+    */
 
     public static void main(String[] args) {
         int[] input = new int[]{4, 6, 8, 5, 9};

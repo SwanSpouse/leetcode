@@ -1,4 +1,4 @@
-package dfs;
+package strings;
 
 public class ReconstructOriginalDigitsFromEnglish {
 

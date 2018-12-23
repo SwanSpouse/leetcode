@@ -50,6 +50,13 @@ public class Print {
         System.out.println();
     }
 
+    public static void printArr(char[] arr) {
+        for (char item : arr) {
+            System.out.print(item + ", ");
+        }
+        System.out.println();
+    }
+
     public static void printArr(boolean[] arr) {
         for (boolean item : arr) {
             System.out.print(item + ", ");

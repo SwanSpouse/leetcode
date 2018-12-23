@@ -22,6 +22,6 @@ public class RemoveElement {
     public static void main(String[] args) {
         int[] arr = new int[]{3, 2, 2, 3};
         System.out.println(removeElement(arr, 3));
-        Print.PrintArr(arr);
+        Print.printArr(arr);
     }
 }

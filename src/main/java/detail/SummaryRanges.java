@@ -33,6 +33,6 @@ public class SummaryRanges {
     }
 
     public static void main(String[] args) {
-        Print.PrintList(new SummaryRanges().summaryRanges(new int[]{0, 2, 3, 7, 8}));
+        Print.printList(new SummaryRanges().summaryRanges(new int[]{0, 2, 3, 7, 8}));
     }
 }

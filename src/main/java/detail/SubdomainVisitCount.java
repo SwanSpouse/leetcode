@@ -35,6 +35,6 @@ public class SubdomainVisitCount {
 
     public static void main(String[] args) {
         System.out.println("Hello World");
-        Print.PrintList(subdomainVisits(new String[]{"9001 discuss.leetcode.com", "9001 discuss.leetcode.com"}));
+        Print.printList(subdomainVisits(new String[]{"9001 discuss.leetcode.com", "9001 discuss.leetcode.com"}));
     }
 }

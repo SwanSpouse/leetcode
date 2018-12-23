@@ -141,11 +141,11 @@ class SudokuSolver {
         };
 
 //        List<Character> ret = generateBackUpItems(board, 3, 2);
-//        Print.PrintList(ret);
+//        Print.printList(ret);
         solveSudoku(board);
         System.out.println();
         System.out.println();
         System.out.println();
-        Print.Print2DArr(board);
+        Print.print2DArr(board);
     }
 }

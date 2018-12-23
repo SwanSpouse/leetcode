@@ -65,7 +65,7 @@ class SetMatrixZeroes {
     public static void main(String[] args) {
         int[][] matrix = new int[][]{{1, 0, 1}, {1, 1, 1}, {1, 1, 1}};
         setZeroes(matrix);
-        Print.Print2DArr(matrix);
+        Print.print2DArr(matrix);
     }
 
 }

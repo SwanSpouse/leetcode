@@ -52,14 +52,14 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] input = new int[]{4, 6, 8, 5, 9};
         heapSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
 
         input = new int[]{1, 3, 3, 3, 3, 2};
         heapSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
 
         input = new int[]{6, 5, 4, 3, 2, 1};
         heapSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
     }
 }

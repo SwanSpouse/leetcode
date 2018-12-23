@@ -26,6 +26,6 @@ public class MoveZeroes {
         int[] nums = new int[]{0, 1, 0, 3, 12};
 //        int[] nums = new int[]{0, 0, 1};
         new MoveZeroes().moveZeroes(nums);
-        Print.PrintArr(nums);
+        Print.printArr(nums);
     }
 }

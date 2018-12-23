@@ -30,7 +30,7 @@ public class SortColors {
     public static void main(String[] args) {
         int[] ret = new int [] {0,1,2,2,1,0};
         sortColors(ret);
-        Print.PrintArr(ret);
+        Print.printArr(ret);
     }
 
 }

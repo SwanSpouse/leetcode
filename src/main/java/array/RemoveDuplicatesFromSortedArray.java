@@ -23,6 +23,6 @@ public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] input = new int[]{1, 1, 1, 2, 2};
         System.out.println(removeDuplicates(input));
-        Print.PrintArr(input);
+        Print.printArr(input);
     }
 }

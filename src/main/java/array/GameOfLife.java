@@ -58,6 +58,6 @@ public class GameOfLife {
     public static void main(String[] args) {
         int[][] input = new int[][] {{0,1,0},{0,0,1},{1,1,1},{0,0,0}};
         new GameOfLife().gameOfLife(input);
-        Print.Print2DArr(input);
+        Print.print2DArr(input);
     }
 }

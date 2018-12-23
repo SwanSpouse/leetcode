@@ -39,7 +39,7 @@ public class DifferentWaysToAddParentheses {
     }
 
     public static void main(String[] args) {
-        Print.PrintList(new DifferentWaysToAddParentheses().diffWaysToCompute("2*3-4*5"));
-        Print.PrintList(new DifferentWaysToAddParentheses().diffWaysToCompute("2*3"));
+        Print.printList(new DifferentWaysToAddParentheses().diffWaysToCompute("2*3-4*5"));
+        Print.printList(new DifferentWaysToAddParentheses().diffWaysToCompute("2*3"));
     }
 }

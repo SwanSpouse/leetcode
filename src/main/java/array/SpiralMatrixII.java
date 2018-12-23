@@ -33,6 +33,6 @@ class SpiralMatrixII {
 
     public static void main(String[] args) {
         System.out.println();
-        Print.Print2DArr(generateMatrix(4));
+        Print.print2DArr(generateMatrix(4));
     }
 }

@@ -58,7 +58,7 @@ public class RandomizedSet {
 //        for (int key : map.keySet()) {
 //            System.out.println(key + ":" + map.get(key));
 //        }
-//        Print.PrintList(this.list);
+//        Print.printList(this.list);
 //    }
 
     public static void main(String[] args) {

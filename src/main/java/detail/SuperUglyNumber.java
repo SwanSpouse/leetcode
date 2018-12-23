@@ -23,8 +23,8 @@ public class SuperUglyNumber {
 //            }
 //            visited.add(min);
 //            ret.add(min);
-//            Print.PrintArr(candidates);
-//            Print.PrintList(ret);
+//            Print.printArr(candidates);
+//            Print.printList(ret);
 //        }
 //        return ret.get(n - 1);
 //    }

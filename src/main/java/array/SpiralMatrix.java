@@ -43,14 +43,14 @@ class SpiralMatrix {
                 {4, 5, 6},
                 {7, 8, 9},
         };
-        Print.PrintList(spiralOrder(matrix));
+        Print.printList(spiralOrder(matrix));
 
         int[][] input = new int[][]{
                 {1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
                 {13, 14, 15, 16}};
-        Print.PrintList(spiralOrder(input));
+        Print.printList(spiralOrder(input));
 
 //        int[][] errBranch = new int[][]{
 //                {1, 2, 3, 4},
@@ -68,6 +68,6 @@ class SpiralMatrix {
                 {9},
                 {10},
         };
-        Print.PrintList(spiralOrder(errBranch));
+        Print.printList(spiralOrder(errBranch));
     }
 }

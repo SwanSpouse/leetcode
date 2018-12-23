@@ -23,7 +23,7 @@ public class FlippingAnImage {
     }
 
     public static void main(String[] args) {
-        Print.Print2DArr(new FlippingAnImage().flipAndInvertImage(new int[][]{
+        Print.print2DArr(new FlippingAnImage().flipAndInvertImage(new int[][]{
                 {1, 1, 0}, {1, 0, 1}, {0, 0, 0}
         }));
     }

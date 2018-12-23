@@ -38,6 +38,6 @@ public class CombinationSumIII {
     }
 
     public static void main(String[] args) {
-        Print.Print2DIntegerList(new CombinationSumIII().combinationSum3(3, 12));
+        Print.print2DIntegerList(new CombinationSumIII().combinationSum3(3, 12));
     }
 }

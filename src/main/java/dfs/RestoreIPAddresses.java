@@ -58,7 +58,7 @@ public class RestoreIPAddresses {
     }
 
     public static void main(String[] args) {
-//        Print.PrintList(restoreIpAddresses("25525511135"));
-        Print.PrintList(restoreIpAddresses("127001"));
+//        Print.printList(restoreIpAddresses("25525511135"));
+        Print.printList(restoreIpAddresses("127001"));
     }
 }

@@ -19,7 +19,7 @@ public class WiggleSortII {
                 nums[j++] = temp[right];
             }
         }
-        Print.PrintArr(nums);
+        Print.printArr(nums);
     }
 
     public static void main(String[] args) {

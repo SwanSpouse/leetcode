@@ -23,6 +23,6 @@ public class CountingBits {
     }
 
     public static void main(String[] args) {
-        Print.PrintArr(new CountingBits().countBits(17));
+        Print.printArr(new CountingBits().countBits(17));
     }
 }

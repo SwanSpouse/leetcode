@@ -30,6 +30,6 @@ public class SubsetsII {
     }
 
     public static void main(String[] args) {
-        Print.Print2DIntegerList(subsetsWithDup(new int[]{4, 4, 4, 1, 4}));
+        Print.print2DIntegerList(subsetsWithDup(new int[]{4, 4, 4, 1, 4}));
     }
 }

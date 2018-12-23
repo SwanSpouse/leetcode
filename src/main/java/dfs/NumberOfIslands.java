@@ -48,6 +48,6 @@ public class NumberOfIslands {
 //                {'0', '0', '1', '0', '0'},
 //                {'0', '0', '0', '1', '1'}};
         System.out.println(new NumberOfIslands().numIslands(grid));
-        Print.Print2DArr(grid);
+        Print.print2DArr(grid);
     }
 }

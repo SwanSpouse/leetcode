@@ -71,7 +71,7 @@ public class GrayCode {
     }
 
     public static void main(String[] args) {
-        Print.PrintList(grayCode(5));
-        Print.PrintList(grayCode(0));
+        Print.printList(grayCode(5));
+        Print.printList(grayCode(0));
     }
 }

@@ -45,14 +45,14 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] input = new int[]{3, 1, 4, 2, 5};
         mergeSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
 
         input = new int[]{1, 3, 3, 3, 3, 2};
         mergeSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
 
         input = new int[]{6, 5, 4, 3, 2, 1};
         mergeSort(input);
-        Print.PrintArr(input);
+        Print.printArr(input);
     }
 }

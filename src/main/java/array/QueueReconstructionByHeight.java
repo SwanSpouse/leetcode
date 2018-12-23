@@ -33,7 +33,7 @@ public class QueueReconstructionByHeight {
     }
 
     public static void main(String[] args) {
-        Print.Print2DArr(new QueueReconstructionByHeight().reconstructQueue(new int[][]{
+        Print.print2DArr(new QueueReconstructionByHeight().reconstructQueue(new int[][]{
                 {7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2},
         }));
     }

@@ -26,6 +26,6 @@ public class RepeatedDNASequences {
     }
 
     public static void main(String[] args) {
-        Print.PrintList(findRepeatedDnaSequences("AAAAAAAAAAA"));
+        Print.printList(findRepeatedDnaSequences("AAAAAAAAAAA"));
     }
 }

@@ -52,7 +52,7 @@ public class PalindromePartitioning {
     public static void main(String[] args) {
         List<List<String>> ret = partition("abb");
         for (List list : ret) {
-            Print.PrintList(list);
+            Print.printList(list);
         }
     }
 }

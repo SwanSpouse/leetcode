@@ -7,30 +7,17 @@ import java.util.List;
 
 public class FindAllDuplicatesInAnArray {
 
-    public void findAPlace(int[] nums, int pos) {
-        int cur = nums[pos];
-        while (cur != pos + 1 && cur != nums[cur - 1]) {
-            int temp = nums[cur - 1];
-            nums[cur - 1] = cur;
-            cur = temp;
-        }
-        nums[pos] = cur;
-    }
 
     public List<Integer> findDuplicates(int[] nums) {
+        ArrayList<Integer> res = new ArrayList<>();
+
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == i + 1) {
-                continue;
-            }
-            findAPlace(nums, i);
-        }
-        List<Integer> ret = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != i + 1) {
-                ret.add(nums[i]);
+            nums[Math.abs(nums[i]) - 1] = -nums[Math.abs(nums[i]) - 1];
+            if (nums[Math.abs(nums[i]) - 1] > 0) {
+                res.add(Math.abs(nums[i]));
             }
         }
-        return ret;
+        return res;
     }
 
     public static void main(String[] args) {

@@ -1,32 +1,29 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class IncreasingOrderSearchTree {
-
-    public void inorderTravel(List<Integer> list, TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        inorderTravel(list, root.left);
-        list.add(root.val);
-        inorderTravel(list, root.right);
-    }
-
 
     public TreeNode increasingBST(TreeNode root) {
         if (root == null) {
             return null;
         }
-        List<Integer> list = new ArrayList<Integer>();
-        inorderTravel(list, root);
-        TreeNode newRoot = new TreeNode(list.get(0));
-        TreeNode cur = newRoot;
-        for (int i = 1; i < list.size(); i++) {
-            cur.right = new TreeNode(list.get(i));
-            cur = cur.right;
+        TreeNode newRoot = root;
+        if (root.left != null) {
+            newRoot = increasingBST(root.left);
+            TreeNode cur = newRoot;
+            while (cur.right != null) {
+                cur = cur.right;
+            }
+            cur.right = root;
+            root.left = null;
+        }
+        if (root.right != null) {
+            root.right = increasingBST(root.right);
         }
         return newRoot;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = Tree.constructTree(new char[]{'7', '5', '9', '4', '6', '8'});
+        Tree.levelOrderTravel(new IncreasingOrderSearchTree().increasingBST(root));
     }
 }

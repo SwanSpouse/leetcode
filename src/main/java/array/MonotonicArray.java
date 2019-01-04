@@ -21,6 +21,15 @@ public class MonotonicArray {
         return true;
     }
 
+    public boolean isMonotonic2(int[] A) {
+        boolean inc = true, dec = true;
+        for (int i = 1; i < A.length; ++i) {
+            inc &= A[i - 1] <= A[i];
+            dec &= A[i - 1] >= A[i];
+        }
+        return inc || dec;
+    }
+
     public static void main(String[] args) {
         System.out.println(new MonotonicArray().isMonotonic(new int[]{1, 3, 2}));
     }

@@ -1,4 +1,4 @@
-package detail;
+package array;
 
 public class RLEIterator {
     int index;

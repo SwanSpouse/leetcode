@@ -3,7 +3,7 @@ package detail;
 
 import java.util.*;
 
-public PowerfulIntegers {
+public class PowerfulIntegers {
     public List<Integer> powerfulIntegers(int x, int y, int bound) {
         List<Integer> ret = new ArrayList<Integer>();
         HashSet<Integer> set = new HashSet<Integer>();

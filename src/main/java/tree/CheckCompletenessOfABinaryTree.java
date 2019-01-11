@@ -3,6 +3,7 @@ package tree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class CheckCompletenessOfABinaryTree {
 
@@ -50,5 +51,18 @@ public class CheckCompletenessOfABinaryTree {
             }
         }
         return true;
+    }
+
+    public boolean isCompleteTree2(TreeNode root) {
+        Queue<TreeNode> bfs = new LinkedList<>();
+        bfs.offer(root);
+        while (bfs.peek() != null) {
+            TreeNode node = bfs.poll();
+            bfs.offer(node.left);
+            bfs.offer(node.right);
+        }
+        while (!bfs.isEmpty() && bfs.peek() == null)
+            bfs.poll();
+        return bfs.isEmpty();
     }
 }

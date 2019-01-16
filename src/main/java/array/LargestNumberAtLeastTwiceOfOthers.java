@@ -1,6 +1,7 @@
 package array;
 
 public class LargestNumberAtLeastTwiceOfOthers {
+    // 这还可以优化成一次遍历，因为一次遍历就可以获取到最大的两个数。
     public int dominantIndex(int[] nums) {
         if(nums.length == 0) {
             return -1;

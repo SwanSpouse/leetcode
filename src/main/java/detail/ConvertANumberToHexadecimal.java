@@ -7,7 +7,7 @@ public class ConvertANumberToHexadecimal {
         String res = "";
         while (num != 0) {
             int v = num & 0b1111;
-            if (v >= 10) res = map[v-10] + res;
+            if (v >= 10) res = map[v - 10] + res;
             else res = v + res;
             num >>>= 4;
         }

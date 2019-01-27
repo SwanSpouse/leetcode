@@ -40,11 +40,23 @@ public class CountBinarySubstrings {
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             if (getSubstring(s, i)) {
-                System.out.println(i);
                 sum += 1;
             }
         }
         return sum;
+    }
+
+    public int countBinarySubstrings2(String s) {
+        int prevRunLength = 0, curRunLength = 1, res = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) curRunLength++;
+            else {
+                prevRunLength = curRunLength;
+                curRunLength = 1;
+            }
+            if (prevRunLength >= curRunLength) res++;
+        }
+        return res;
     }
 
     public static void main(String[] args) {

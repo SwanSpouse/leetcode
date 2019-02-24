@@ -1,32 +1,42 @@
 package strings;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class LetterCasePermutation {
-    public void generate(HashSet<String> set, int length, int index) {
-        if (index >= length) {
+
+    public void dfs(HashSet<String> set, StringBuffer sb, int index) {
+        if (index >= sb.length()) {
             return;
         }
-        for (String cur : set) {
-            StringBuffer sb = new StringBuffer(cur);
-            if ('a' <= sb.charAt(index) && sb.charAt(index) <= 'z') {
-                set.add(sb.toString());
-                sb.setCharAt(index, (char) (sb.charAt(index) - 'a' + 'A'));
-                set.add(sb.toString());
-            } else if ('A' <= sb.charAt(index) && sb.charAt(index) <= 'Z') {
-                set.add(sb.toString());
-                sb.setCharAt(index, (char) (sb.charAt(index) - 'A' + 'a'));
-                set.add(sb.toString());
-            }
+        set.add(sb.toString());
+        if (sb.charAt(index) >= 'a' && sb.charAt(index) <= 'z') {
+            dfs(set, sb, index + 1);
+            int diff = 'A' - 'a';
+            sb.setCharAt(index, (char) (sb.charAt(index) + diff));
+            set.add(sb.toString());
+            dfs(set, sb, index + 1);
+            sb.setCharAt(index, (char) (sb.charAt(index) - diff));
+        } else if (sb.charAt(index) >= 'A' && sb.charAt(index) <= 'Z') {
+            dfs(set, sb, index + 1);
+            int diff = 'a' - 'A';
+            sb.setCharAt(index, (char) (sb.charAt(index) + diff));
+            set.add(sb.toString());
+            dfs(set, sb, index + 1);
+            sb.setCharAt(index, (char) (sb.charAt(index) - diff));
+        } else {
+            dfs(set, sb, index + 1);
         }
-        generate(set, length, index + 1);
     }
+
 
     public List<String> letterCasePermutation(String S) {
         List<String> ret = new ArrayList<String>();
         HashSet<String> set = new HashSet<String>();
+
         set.add(S);
-        generate(set, S.length(), 0);
+        dfs(set, new StringBuffer(S), 0);
 
         for (String item : set) {
             ret.add(item);
@@ -36,5 +46,6 @@ public class LetterCasePermutation {
 
     public static void main(String[] args) {
         System.out.println(new LetterCasePermutation().letterCasePermutation("a1b2"));
+        System.out.println(new LetterCasePermutation().letterCasePermutation("A1b2"));
     }
 }

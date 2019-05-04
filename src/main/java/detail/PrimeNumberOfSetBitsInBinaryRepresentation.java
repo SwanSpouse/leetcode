@@ -2,6 +2,8 @@ package detail;
 
 import java.util.HashMap;
 
+// Set<Integer> primes = new HashSet<>(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19 /*, 23, 29 */ ));
+// 可以把质数都列出来，省去了检测的麻烦。
 public class PrimeNumberOfSetBitsInBinaryRepresentation {
     private String intToBinary(int input) {
         StringBuffer sb = new StringBuffer();

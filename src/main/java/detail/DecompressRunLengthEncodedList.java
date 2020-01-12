@@ -13,11 +13,7 @@ public class DecompressRunLengthEncodedList {
                 ret.add(b);
             }
         }
-        int[] retArr = new int[ret.size()];
-        for (int i = 0; i < ret.size(); i++) {
-            retArr[i] = ret.get(i);
-        }
-        return retArr;
+        return ret.stream().mapToInt(i -> i).toArray();
     }
 
     public static void main(String[] args) {

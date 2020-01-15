@@ -2,8 +2,7 @@
 .idea/*
 new-leetcode.iml
 target/*
-
-
-
-
+.classpath
+.project
+.settings/
 newleetcode.iml

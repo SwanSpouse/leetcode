@@ -7,7 +7,7 @@ public class PascalTriangleII {
 		ArrayList<Integer> curLine = new ArrayList<Integer>();
 		ArrayList<Integer> lastLine = null;
 		for(int i=0; i <= rowIndex; i ++ ) {
-			lastLine = new ArrayList(curLine);
+			lastLine = new ArrayList<Integer>(curLine);
             curLine.clear();
 			for(int index = 0; index < i+1; index ++ ) {
 				if(index == 0 || index == i) {

@@ -11,8 +11,8 @@ import java.util.*;
 public class RestoreIPAddresses {
 
     public static List<String> restoreIpAddresses(String s) {
-        ArrayList<String> ret = new ArrayList();
-        HashSet<String> set = new HashSet();
+        ArrayList<String> ret = new ArrayList<String>();
+        HashSet<String> set = new HashSet<String>();
         dfs(ret, set, s, "", 0);
         return ret;
     }

@@ -9,7 +9,7 @@ class Permutations {
 
     public static void dfs(List<List<Integer>> ret, List<Integer> cur, int[] nums, HashSet<Integer> curSet) {
         if( cur.size() == nums.length){
-            ret.add(new ArrayList(cur));
+            ret.add(new ArrayList<Integer>(cur));
             return ;
         }
         for(int i=0; i < nums.length; i ++) {

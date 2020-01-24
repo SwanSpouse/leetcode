@@ -12,7 +12,7 @@ public class CBTInserter {
     }
 
     public int insert(int v) {
-        LinkedList<TreeNode> list = new LinkedList();
+        LinkedList<TreeNode> list = new LinkedList<TreeNode>();
         list.add(this.root);
 
         TreeNode cur;

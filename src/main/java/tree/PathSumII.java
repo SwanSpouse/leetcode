@@ -11,7 +11,7 @@ public class PathSumII {
         cur.add(node.val);
         if (node.left == null && node.right == null) {
             if (curSum + node.val == target) {
-                ret.add(new ArrayList(cur));
+                ret.add(new ArrayList<Integer>(cur));
             }
             cur.remove(cur.size() - 1);
             return;

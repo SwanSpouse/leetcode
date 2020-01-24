@@ -8,7 +8,7 @@ import java.util.*;
 class PermutationsII {
     public static void dfs(List<List<Integer>> ret, List<Integer> cur, int[] nums, HashMap<Integer,Integer>originCount, HashMap<Integer, Integer>curCount){
         if( cur.size() == nums.length){
-            ret.add(new ArrayList(cur));
+            ret.add(new ArrayList<Integer>(cur));
             return ;
         }
 

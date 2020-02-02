@@ -1,12 +1,14 @@
 package tree;
 
+import java.util.ArrayList;
+
 class DeepestLeavesSum {
     public int deepestLeavesSum(TreeNode root) {
         if(root == null) {
             return 0;
         }
-        List<TreeNode> cur = new ArrayList<TreeNode>();
-        List<TreeNode> next = new ArrayList<TreeNode>();
+        ArrayList<TreeNode> cur = new ArrayList<TreeNode>();
+        ArrayList<TreeNode> next = new ArrayList<TreeNode>();
 
         next.add(root);
         while(!next.isEmpty()){

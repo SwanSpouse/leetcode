@@ -8,7 +8,6 @@ import java.util.List;
 
 public class SortTheMatrixDiagonally {
 
-
     public void sort(int[][] mat, int i, int j) {
         List<Integer> cur = new ArrayList<>();
         for (int x = i, y = j; x < mat.length && y < mat[x].length; x++, y++) {
@@ -36,10 +35,6 @@ public class SortTheMatrixDiagonally {
     }
 
     public static void main(String[] args) {
-        Print.print2DArr(new SortTheMatrixDiagonally().diagonalSort(new int[][]{
-                {3, 3, 1, 1},
-                {2, 2, 1, 2},
-                {1, 1, 1, 2},
-        }));
+        Print.print2DArr(new SortTheMatrixDiagonally().diagonalSort(new int[][]{{3, 3, 1, 1}, {2, 2, 1, 2}, {1, 1, 1, 2},}));
     }
 }

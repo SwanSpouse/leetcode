@@ -21,6 +21,9 @@ public class SumOfNodesWithEvenValuedGrandparent {
     }
 
     public int sumEvenGrandparent(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
         dfs(root, false);
         return ret;
     }

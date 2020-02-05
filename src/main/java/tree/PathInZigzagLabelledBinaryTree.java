@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+// https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree/discuss/497583/Java-O(log-n-)-solution-using-the-path-and-symmetric-path
+// 看看人家怎么做的
 public class PathInZigzagLabelledBinaryTree {
     public List<Integer> pathInZigZagTree(int label) {
         LinkedList<Integer> ret = new LinkedList<>();

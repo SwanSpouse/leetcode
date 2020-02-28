@@ -24,12 +24,7 @@ public class BeautifulArray {
             }
             arr = temp;
         }
-
-        int[] ret = new int[N];
-        for (int i = 0; i < N; i++) {
-            ret[i] = arr.get(i);
-        }
-        return ret;
+        return arr.stream().mapToInt(i -> i).toArray();
     }
 
     public static void main(String[] args) {

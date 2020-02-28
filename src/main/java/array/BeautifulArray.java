@@ -2,15 +2,32 @@ package array;
 
 import utils.Print;
 
+import java.util.ArrayList;
+
 public class BeautifulArray {
 
     public int[] beautifulArray(int N) {
-        int[] ret = new int[N];
-        for (int i = 1; i <= N; i += 2) {
-            ret[i - 1] = i + 1;
-            if (i < N) {
-                ret[i] = i;
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+
+        while (arr.size() < N) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            for (Integer cur : arr) {
+                if (cur * 2 - 1 <= N) {
+                    temp.add(cur * 2 - 1);
+                }
             }
+            for (Integer cur : arr) {
+                if (cur * 2 <= N) {
+                    temp.add(cur * 2);
+                }
+            }
+            arr = temp;
+        }
+
+        int[] ret = new int[N];
+        for (int i = 0; i < N; i++) {
+            ret[i] = arr.get(i);
         }
         return ret;
     }

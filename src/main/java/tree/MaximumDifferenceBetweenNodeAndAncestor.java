@@ -2,30 +2,14 @@ package tree;
 
 public class MaximumDifferenceBetweenNodeAndAncestor {
 
-    private int maxVal = 0;
-
-    public void path(TreeNode cur, int origin) {
-        if (cur == null) {
-            return;
-        }
-        maxVal = Math.max(maxVal, Math.abs(cur.val - origin));
-        path(cur.left, origin);
-        path(cur.right, origin);
-    }
-
-    public void dfs(TreeNode cur) {
-        if (cur == null) {
-            return;
-        }
-        path(cur.left, cur.val);
-        path(cur.right, cur.val);
-
-        dfs(cur.left);
-        dfs(cur.right);
-    }
-
     public int maxAncestorDiff(TreeNode root) {
-        dfs(root);
-        return maxVal;
+        return dfs(root, root.val, root.val);
+    }
+
+    public int dfs(TreeNode root, int mn, int mx) {
+        if (root == null) return mx - mn;
+        mx = Math.max(mx, root.val);
+        mn = Math.min(mn, root.val);
+        return Math.max(dfs(root.left, mn, mx), dfs(root.right, mn, mx));
     }
 }
